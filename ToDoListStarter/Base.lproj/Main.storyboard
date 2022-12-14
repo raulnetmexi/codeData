@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P1w-iS-q0G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I8T-XZ-cHN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -19,6 +19,19 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8xl-nK-WHW">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nKZ-PT-BEe">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKZ-PT-BEe" id="dJA-KE-ey8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="P1w-iS-q0G" kind="show" identifier="taskSegue" trigger="accessoryAction" id="BcJ-Ro-hQo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -30,7 +43,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8xl-nK-WHW" secondAttribute="bottom" id="nP6-ct-EMh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="66D-1I-qlW"/>
+                    <navigationItem key="navigationItem" id="66D-1I-qlW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4tf-zD-RCn">
+                            <connections>
+                                <segue destination="D8h-0Q-0ch" kind="presentation" identifier="addTaskSegue" id="3u8-N1-uAm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="toDoListTable" destination="8xl-nK-WHW" id="40O-Z8-arb"/>
                     </connections>
@@ -85,7 +104,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="3e2-i7-UOU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="217"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="216.33333333333334"/>
                                                     <connections>
                                                         <action selector="taskDate:" destination="Cob-9W-zpH" eventType="valueChanged" id="HDl-Ez-7d8"/>
                                                     </connections>
@@ -138,16 +157,26 @@
                             <outlet property="delegate" destination="P1w-iS-q0G" id="c64-qC-k0X"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Z3W-Ff-JI6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Suc-Sj-eSW">
+                            <connections>
+                                <action selector="taskCancelButtonPressed:" destination="P1w-iS-q0G" id="MQj-1d-qjs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="062-cl-ygd"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="taskCancelButton" destination="Suc-Sj-eSW" id="bcR-u1-f4d"/>
                         <outlet property="taskDate" destination="3e2-i7-UOU" id="KtV-gw-JOQ"/>
                         <outlet property="taskNotes" destination="hEP-Pm-taj" id="S0S-Nz-e5c"/>
+                        <outlet property="taskSaveButton" destination="062-cl-ygd" id="YXg-Pd-squ"/>
                         <outlet property="taskTitle" destination="yte-6X-Ucc" id="4vt-cl-Vgr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxP-ih-Grf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Cob-9W-zpH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2215" y="-1"/>
+            <point key="canvasLocation" x="3146" y="-268"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7wY-uv-BKU">
@@ -167,7 +196,28 @@
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qyZ-Fe-nav">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D8h-0Q-0ch" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="077-3j-CaN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P1w-iS-q0G" kind="relationship" relationship="rootViewController" id="QEy-1r-BSS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kj8-6E-cub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2147" y="-690"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BcJ-Ro-hQo"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -66,12 +66,12 @@
 				7B74BD07294A53D6001D5806 /* SceneDelegate.swift */,
 				7B74BD09294A53D6001D5806 /* ViewController.swift */,
 				7B74BD1C294A546C001D5806 /* ToDoListViewController.swift */,
+				7B74BD1E294A6604001D5806 /* TaskDetailViewController.swift */,
 				7B74BD0B294A53D6001D5806 /* Main.storyboard */,
 				7B74BD11294A53D8001D5806 /* Assets.xcassets */,
 				7B74BD13294A53D8001D5806 /* LaunchScreen.storyboard */,
 				7B74BD16294A53D8001D5806 /* Info.plist */,
 				7B74BD0E294A53D6001D5806 /* ToDoListStarter.xcdatamodeld */,
-				7B74BD1E294A6604001D5806 /* TaskDetailViewController.swift */,
 			);
 			path = ToDoListStarter;
 			sourceTree = "<group>";
