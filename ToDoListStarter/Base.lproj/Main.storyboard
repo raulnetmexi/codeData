@@ -20,14 +20,29 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nKZ-PT-BEe">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDoTaskCell" id="nKZ-PT-BEe" customClass="ToDoTaskViewCell" customModule="ToDoListStarter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="42.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKZ-PT-BEe" id="dJA-KE-ey8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="42.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVa-zT-b5C">
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="353" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UVa-zT-b5C" firstAttribute="leading" secondItem="dJA-KE-ey8" secondAttribute="leadingMargin" id="86A-sG-Eii"/>
+                                                <constraint firstItem="UVa-zT-b5C" firstAttribute="top" secondItem="dJA-KE-ey8" secondAttribute="topMargin" id="rnv-Hn-f8x"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UVa-zT-b5C" secondAttribute="trailing" id="xBi-Fv-MDJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UVa-zT-b5C" secondAttribute="bottom" id="zUy-ls-6xm"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="taskTitle" destination="UVa-zT-b5C" id="IeS-2z-WNX"/>
                                             <segue destination="P1w-iS-q0G" kind="show" identifier="taskSegue" trigger="accessoryAction" id="BcJ-Ro-hQo"/>
                                         </connections>
                                     </tableViewCell>
@@ -79,9 +94,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="taskTitle:" destination="Cob-9W-zpH" eventType="editingDidEnd" id="lsV-JF-g6s"/>
-                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -104,10 +116,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="3e2-i7-UOU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="216.33333333333334"/>
-                                                    <connections>
-                                                        <action selector="taskDate:" destination="Cob-9W-zpH" eventType="valueChanged" id="HDl-Ez-7d8"/>
-                                                    </connections>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="217"/>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -135,7 +144,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="DrB-rX-ZnQ"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -163,7 +171,11 @@
                                 <action selector="taskCancelButtonPressed:" destination="P1w-iS-q0G" id="MQj-1d-qjs"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="062-cl-ygd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="062-cl-ygd">
+                            <connections>
+                                <segue destination="Cob-9W-zpH" kind="unwind" unwindAction="unWindFromDetailWithSegue:" id="CiT-I1-z1F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="taskCancelButton" destination="Suc-Sj-eSW" id="bcR-u1-f4d"/>
