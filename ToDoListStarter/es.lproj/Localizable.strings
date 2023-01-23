@@ -1,0 +1,12 @@
+
+"boton.save" = "SAVE";
+"boton.cancel" = "CANCEL";
+"boton.acept" = "Acept";
+"note.title" = "Title";
+"note.date" = "Date";
+"note.notes" = "Notes";
+"config.size" = "Font size";
+"config.color" = "Font color";
+"config.family" = "Font family";
+"alert.error" = "error";
+"alert.msj" = "Es necesario un titulo para la nota";

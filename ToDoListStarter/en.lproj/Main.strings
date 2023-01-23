@@ -1,0 +1,39 @@
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "062-cl-ygd"; */
+"062-cl-ygd.title" = "Save";
+
+/* Class = "UITableViewSection"; headerTitle = "Title"; ObjectID = "5US-MC-kaa"; */
+"5US-MC-kaa.headerTitle" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "Date"; ObjectID = "5rJ-FK-ePW"; */
+"5rJ-FK-ePW.headerTitle" = "Date";
+
+/* Class = "UILabel"; text = "Texto Prueba"; ObjectID = "6MJ-Gw-CwC"; */
+"6MJ-Gw-CwC.text" = "Texto Prueba";
+
+/* Class = "UILabel"; text = "Font Color"; ObjectID = "6gC-mz-zOD"; */
+"6gC-mz-zOD.text" = "Font Color";
+
+/* Class = "UILabel"; text = "Font Size "; ObjectID = "DJM-1h-HJi"; */
+"DJM-1h-HJi.text" = "Font Size ";
+
+/* Class = "UITableViewSection"; headerTitle = "Notes"; ObjectID = "EBO-o0-hJ4"; */
+"EBO-o0-hJ4.headerTitle" = "Notes";
+
+/* Class = "UILabel"; text = "Font Family:"; ObjectID = "Gi9-mi-bRy"; */
+"Gi9-mi-bRy.text" = "Font Family:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UVa-zT-b5C"; */
+"UVa-zT-b5C.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "cQD-RS-vNC"; */
+"cQD-RS-vNC.title" = "Item";
+
+/* Class = "UIButton"; configuration.title = "Aceptar"; ObjectID = "sHe-L3-7F6"; */
+"sHe-L3-7F6.configuration.title" = "Aceptar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "sHe-L3-7F6"; */
+"sHe-L3-7F6.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "xxn-jp-Qra"; */
+"xxn-jp-Qra.title" = "Item";
